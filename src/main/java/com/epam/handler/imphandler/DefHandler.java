@@ -12,16 +12,15 @@ public class DefHandler implements IHandle {
 	public void handle(Request rq, Response rp) {
 
 		System.out.println("DEfHandler!!!!!");
-
-		rp.setVersion(rq.getVersion());
-		System.out.println(rp.getVersion());
-		rp.setStatusCode(ResponseConstants.STATUS_CODE_400_BAD_REQUEST);
-		rp.setContentType(rq.getAccept());
-		System.out.println(rp.getStatusCode());
-		rp.setBody("No such resource!!!!");
-
 		try {
+
+			rp.setVersion(rq.getVersion());
+			rp.setStatusCode(ResponseConstants.STATUS_CODE_400_BAD_REQUEST);
+			rp.setContentType(rq.getAccept());
+			rp.setContentLength("");
+			rp.setBody("No such resource!!!!");
 			rp.write();
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

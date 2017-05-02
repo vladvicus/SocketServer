@@ -7,7 +7,6 @@ import com.epam.method.Request;
 import com.epam.method.Response;
 import com.epam.model.Book;
 
-import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.util.List;
 
@@ -18,15 +17,13 @@ public class DeleteBook implements IHandle {
 
     public void handle(Request rq, Response rp) throws IOException {
         String acceptType = rq.getAccept();
-        try {
+
             response(rq, rp, acceptType);
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
+
 
     }
 
-    private void response(Request rq, Response rp, String acceptType) throws JAXBException {
+    private void response(Request rq, Response rp, String acceptType) {
 
 
         if (Store.getBooks().isEmpty()) {
@@ -54,6 +51,7 @@ public class DeleteBook implements IHandle {
                 rp.setVersion(rq.getVersion());
                 rp.setStatusCode(ResponseConstants.STATUS_CODE_400_BAD_REQUEST);
                 rp.setContentType(rq.getAccept());
+                rp.setContentLength("");
                 rp.setBody("No such Id in Store!!!" + rq.getDelBookId());
                 rp.write();
 

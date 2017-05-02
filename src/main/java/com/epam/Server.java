@@ -1,6 +1,5 @@
 package com.epam;
 
-import com.epam.constants.CommonConstants;
 import com.epam.handler.Handler;
 import com.epam.handler.IHandle;
 import com.epam.handler.imphandler.DefHandler;
@@ -50,12 +49,12 @@ public class Server {
     }
 
     public Handler findHendler(Request rq) {
-        Handler defHandler = new Handler(CommonConstants.GET, null, new DefHandler());
+
         String metnodFromRequest = rq.getMethod();
         System.out.println(metnodFromRequest);
         String pathFromRequest = rq.getPath();
         System.out.println(pathFromRequest);
-
+        Handler defHandler = new Handler(metnodFromRequest, pathFromRequest, new DefHandler());
 
         for (Handler handler : handlers) {
             if (metnodFromRequest.equals(handler.getMethod()) && MatcherUtils.isMatches(handler.getUri(), pathFromRequest)) {
