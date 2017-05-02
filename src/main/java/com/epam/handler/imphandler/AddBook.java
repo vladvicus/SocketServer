@@ -22,10 +22,10 @@ public class AddBook implements IHandle {
         String body = "";
         try {
             if (rq.getAccept().equals(CommonConstants.ACCEPT_TYPE_XML)) {
-                System.out.println("--------------->" + rq.getBody());
 
-                bookCreate =(Book)(MarshallerHelper.unmarshall(rq.getBody(), Book.class));// bookCreate.getClass()));
-                System.out.println("!!!!!!!!!!!" + bookCreate.toString());
+
+                bookCreate =(Book)(MarshallerHelper.unmarshall(rq.getBody(), Book.class));
+
 
                 rp.setContentLength(String.valueOf(rq.getBody().getBytes().length));
                 rp.setStatusCode(ResponseConstants.STATUS_CODE_201_CREATED);

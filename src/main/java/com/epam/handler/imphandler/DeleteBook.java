@@ -10,9 +10,7 @@ import com.epam.model.Book;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by Администратор on 25.04.2017.
- */
+
 public class DeleteBook implements IHandle {
 
     public void handle(Request rq, Response rp) throws IOException {
@@ -61,16 +59,9 @@ public class DeleteBook implements IHandle {
         }
 
            catch (Exception e){
-            e.printStackTrace();
-               rp.setStatusCode(ResponseConstants.STATUS_CODE_400_BAD_REQUEST);
+               System.out.println("Exception in DELETE!!");
 
         }
-/*
-        try {
-            rp.write();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
 
     }
 

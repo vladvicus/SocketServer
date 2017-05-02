@@ -57,7 +57,7 @@ public class GetAllBooks implements IHandle {
         try {
             rp.write();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Exception in GetAllBooks!!!");
         }
     }
 }
