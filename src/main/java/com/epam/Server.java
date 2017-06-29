@@ -19,7 +19,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Server {
-
+//This is server
+    
     private final List<Handler> handlers = new ArrayList<Handler>();
     private ExecutorService pool;
     private int port;
